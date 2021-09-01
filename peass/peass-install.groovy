@@ -14,14 +14,16 @@ pipeline {
         stage('clone peass and peass-ci') {
             steps{
                 dir('peass') {
-                    git branch: 'main', url: 'https://github.com/DaGeRe/peass.git'
+                    // git branch: 'main', url: 'https://github.com/DaGeRe/peass.git'
+                    git branch: 'develop', url: 'https://github.com/DaGeRe/peass.git'
                     // last working version
-                    sh 'git checkout adb0c8f3ad604843c936eb3f7e2b357b9d4dbf2c'
+                    // sh 'git checkout adb0c8f3ad604843c936eb3f7e2b357b9d4dbf2c'
                 }
                 dir('peass-ci') {
-                    git branch: 'main', url: 'https://github.com/DaGeRe/peass-ci.git'
+                    //  branch: 'main', url: 'https://github.com/DaGeRe/peass-ci.git'
+                    git branch: 'develop', url: 'https://github.com/DaGeRe/peass-ci.git'
                     // last working version
-                    sh 'git checkout 85b9c362da1717b1984611e8c7e4249174c3c5bc'
+                    // 'git checkout 85b9c362da1717b1984611e8c7e4249174c3c5bc'
                 }
             }
         }
