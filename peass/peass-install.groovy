@@ -17,13 +17,13 @@ pipeline {
                     // git branch: 'main', url: 'https://github.com/DaGeRe/peass.git'
                     git branch: 'develop', url: 'https://github.com/DaGeRe/peass.git'
                     // last working version
-                    // sh 'git checkout adb0c8f3ad604843c936eb3f7e2b357b9d4dbf2c'
+                    sh 'git checkout d1aed977f0fbcbe181500a728a0c0133e686ecfc'
                 }
                 dir('peass-ci') {
                     //  branch: 'main', url: 'https://github.com/DaGeRe/peass-ci.git'
                     git branch: 'develop', url: 'https://github.com/DaGeRe/peass-ci.git'
                     // last working version
-                    // 'git checkout 85b9c362da1717b1984611e8c7e4249174c3c5bc'
+                    'git checkout ef18d7be2d0a344b087b9ab5565d408772c91041'
                 }
             }
         }
