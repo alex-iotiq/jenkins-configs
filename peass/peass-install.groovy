@@ -23,7 +23,7 @@ pipeline {
                     //  branch: 'main', url: 'https://github.com/DaGeRe/peass-ci.git'
                     git branch: 'develop', url: 'https://github.com/DaGeRe/peass-ci.git'
                     // last working version
-                    'git checkout ef18d7be2d0a344b087b9ab5565d408772c91041'
+                    sh 'git checkout ef18d7be2d0a344b087b9ab5565d408772c91041'
                 }
             }
         }
