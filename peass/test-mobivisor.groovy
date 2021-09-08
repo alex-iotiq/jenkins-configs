@@ -31,6 +31,13 @@ pipeline {
                 }
             }
         }
+        stage('filter passing tests'){
+            steps{
+                script{
+                    sh 'python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py "${WORKSPACE}/app/src"'
+                }
+            }
+        }
         stage('performance test') {
             // it's possible to generate the pipeline script with the "pipeline syntax" link under the pipeline script -> sample step: Measure: Versionsperformance messen
             // this is the fastest configuration possible, for more accurate measurements you need more VMs / iterations / repetitions / warmup
