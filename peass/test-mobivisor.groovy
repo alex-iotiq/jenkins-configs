@@ -34,7 +34,7 @@ pipeline {
         stage('filter passing tests'){
             steps{
                 script{
-                    sh 'python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py "${WORKSPACE}/app/src"'
+                    sh 'python3.7 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py "${WORKSPACE}/app/src"'
                 }
             }
         }
