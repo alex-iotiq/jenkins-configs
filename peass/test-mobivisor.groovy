@@ -34,9 +34,10 @@ pipeline {
         stage('filter passing tests'){
             steps{
                 script{
-                    sh 'python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py "${WORKSPACE}/app/src"'
-                    sh 'sh ${JENKINS_HOME}/peass_scripts/git_edit_setup.sh'
-                    sh 'git edit-peass HEAD~3 "${JENKINS_HOME}/peass_scripts/build.gradle" "${WORKSPACE}/app"'
+                    sh 'sh ${JENKINS_HOME}/peass_scripts/change_history.sh 2 ${WORKSPACE}/app/src'
+//                     sh 'python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py "${WORKSPACE}/app/src"'
+//                     sh 'sh ${JENKINS_HOME}/peass_scripts/git_edit_setup.sh'
+//                     sh 'git edit-peass HEAD~3 "${JENKINS_HOME}/peass_scripts/build.gradle" "${WORKSPACE}/app"'
                 }
             }
         }
