@@ -6,6 +6,7 @@ pipeline {
             steps{
                 sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/*'
                 sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/.git*'
+                sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/.gradle*'
             }
         }
         // {MOBIVISOR_GITLAB} = path to AndroidMdmAgent project
