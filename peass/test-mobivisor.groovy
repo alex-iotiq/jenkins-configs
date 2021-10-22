@@ -32,17 +32,17 @@ pipeline {
                 }
             }
         }
-        stage('filter passing tests'){
-            steps{
-                script{
+//         stage('filter passing tests'){
+//             steps{
+//                 script{
                     //sh 'git -c sequence.editor="sed -i \'\'" rebase -i "HEAD~5" --exec "cp -fr ${JENKINS_HOME}/peass_scripts/build.gradle ${WORKSPACE}/app && python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py ${WORKSPACE}/app/src && git add ${WORKSPACE}/app/build.gradle ${WORKSPACE}/app/src/test/* && git commit --amend --no-edit --allow-empty" -X "theirs"'
 //                    sh 'sh ${JENKINS_HOME}/peass_scripts/change_history.sh 2 ${WORKSPACE}/app/src'
 //                     sh 'python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py "${WORKSPACE}/app/src"'
 //                     sh 'sh ${JENKINS_HOME}/peass_scripts/git_edit_setup.sh'
 //                     sh 'git edit-peass HEAD~3 "${JENKINS_HOME}/peass_scripts/build.gradle" "${WORKSPACE}/app"'
-                }
-            }
-        }
+//                 }
+//             }
+//         }
         stage('performance test') {
             // it's possible to generate the pipeline script with the "pipeline syntax" link under the pipeline script -> sample step: Measure: Versionsperformance messen
             // this is the fastest configuration possible, for more accurate measurements you need more VMs / iterations / repetitions / warmup
