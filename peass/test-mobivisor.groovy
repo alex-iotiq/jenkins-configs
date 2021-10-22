@@ -35,7 +35,7 @@ pipeline {
         stage('filter passing tests'){
             steps{
                 script{
-                    sh 'git -c sequence.editor="sed -i \'\'" rebase -i "HEAD~2" --exec "cp -fr ${JENKINS_HOME}/peass_scripts/build.gradle ${WORKSPACE}/app && python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py ${WORKSPACE}/app/src && git add ${WORKSPACE}/app/build.gradle ${WORKSPACE}/app/src/test/* && git commit --amend --no-edit --allow-empty" -X "theirs"'
+                    sh 'git -c sequence.editor="sed -i \'\'" rebase -i "HEAD~5" --exec "cp -fr ${JENKINS_HOME}/peass_scripts/build.gradle ${WORKSPACE}/app && python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py ${WORKSPACE}/app/src && git add ${WORKSPACE}/app/build.gradle ${WORKSPACE}/app/src/test/* && git commit --amend --no-edit --allow-empty" -X "theirs"'
 //                    sh 'sh ${JENKINS_HOME}/peass_scripts/change_history.sh 2 ${WORKSPACE}/app/src'
 //                     sh 'python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py "${WORKSPACE}/app/src"'
 //                     sh 'sh ${JENKINS_HOME}/peass_scripts/git_edit_setup.sh'
@@ -48,7 +48,7 @@ pipeline {
             // this is the fastest configuration possible, for more accurate measurements you need more VMs / iterations / repetitions / warmup
             // with includes it's possible to cherry pick the tests to make it faster
             steps {
-              measure VMs: 2, createDefaultConstructor: false, iterations: 1, measurementMode: 'COMPLETE', nightlyBuild: false, redirectSubprocessOutputToFile: false, redirectToNull: false, repetitions: 2, testGoal: 'testBorDebugUnitTest', timeout: 10, updateSnapshotDependencies: false, useAggregation: false, useSourceInstrumentation: false
+              measure VMs: 2, createDefaultConstructor: false, iterations: 1, measurementMode: 'COMPLETE', nightlyBuild: false, redirectSubprocessOutputToFile: false, redirectToNull: false, repetitions: 2, testGoal: 'testBorDebugUnitTest', timeout: 10, updateSnapshotDependencies: false, useAggregation: false, useSourceInstrumentation: false, generateCoverageSelection: false
             }
         }
     }
