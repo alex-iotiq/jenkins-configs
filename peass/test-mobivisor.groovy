@@ -35,7 +35,7 @@ pipeline {
         stage('filter passing tests'){
             steps{
                 script{
-                    sh 'git -c sequence.editor="sed -i \'\'" rebase -i "HEAD~5" --exec "cp -fr ${JENKINS_HOME}/peass_scripts/build.gradle ${WORKSPACE}/app && python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py ${WORKSPACE}/app/src && git add ${WORKSPACE}/app/build.gradle ${WORKSPACE}/app/src/test/* && git commit --amend --no-edit --allow-empty" -X "theirs"'
+                    //sh 'git -c sequence.editor="sed -i \'\'" rebase -i "HEAD~5" --exec "cp -fr ${JENKINS_HOME}/peass_scripts/build.gradle ${WORKSPACE}/app && python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py ${WORKSPACE}/app/src && git add ${WORKSPACE}/app/build.gradle ${WORKSPACE}/app/src/test/* && git commit --amend --no-edit --allow-empty" -X "theirs"'
 //                    sh 'sh ${JENKINS_HOME}/peass_scripts/change_history.sh 2 ${WORKSPACE}/app/src'
 //                     sh 'python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py "${WORKSPACE}/app/src"'
 //                     sh 'sh ${JENKINS_HOME}/peass_scripts/git_edit_setup.sh'
