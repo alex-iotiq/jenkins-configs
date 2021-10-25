@@ -48,7 +48,7 @@ pipeline {
             // this is the fastest configuration possible, for more accurate measurements you need more VMs / iterations / repetitions / warmup
             // with includes it's possible to cherry pick the tests to make it faster
             steps {
-              measure VMs: 2, createDefaultConstructor: false, iterations: 1, measurementMode: 'COMPLETE', nightlyBuild: false, redirectSubprocessOutputToFile: false, redirectToNull: false, repetitions: 2, testGoal: 'testBorDebugUnitTest', timeout: 10, updateSnapshotDependencies: false, useAggregation: false, useSourceInstrumentation: false, generateCoverageSelection: false, versionDiff: 2
+              measure VMs: 2, createDefaultConstructor: false, iterations: 1, measurementMode: 'COMPLETE', nightlyBuild: false, redirectSubprocessOutputToFile: false, redirectToNull: false, repetitions: 2, testGoal: 'testBorDebugUnitTest', timeout: 10, updateSnapshotDependencies: false, useAggregation: false, useSourceInstrumentation: false
             }
         }
     }
