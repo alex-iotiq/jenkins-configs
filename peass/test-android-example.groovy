@@ -31,7 +31,7 @@ pipeline {
     
         stage('Test') {
             steps {
-              measure VMs: 2, createDefaultConstructor: false, generateCoverageSelection: true, iterations: 1, measurementMode: 'COMPLETE', repetitions: 1, testGoal: 'testRelease', timeout: 10, updateSnapshotDependencies: false, useSampling: false, useSourceInstrumentation: false, displayLogs: 'true', displayRCALogs: 'true', displayRTSLogs: 'true'
+              measure VMs: 2, createDefaultConstructor: false, generateCoverageSelection: true, iterations: 1, measurementMode: 'COMPLETE', nightlyBuild: false, onlyMeasureWorkload: true, redirectSubprocessOutputToFile: false, redirectToNull: false, repetitions: 1, testGoal: 'testRelease', timeout: 10, updateSnapshotDependencies: false, useSourceInstrumentation: false
             }
         }/*
         stage('gradle builds'){
