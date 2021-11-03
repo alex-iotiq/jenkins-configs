@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    triggers {
+        pollSCM('0 20 * * *')
+    }
     stages {
         // for clean clone
         stage('remove current project'){
