@@ -19,12 +19,12 @@ pipeline {
                     // last working version
                     // sh 'git checkout d1aed977f0fbcbe181500a728a0c0133e686ecfc'
                 }
-                dir('peass-ci') {
-                    //  branch: 'main', url: 'https://github.com/DaGeRe/peass-ci.git'
-                    git branch: 'develop', url: 'https://github.com/DaGeRe/peass-ci.git'
-                    // last working version
-                    // sh 'git checkout ef18d7be2d0a344b087b9ab5565d408772c91041'
-                }
+//                 dir('peass-ci') {
+//                     //  branch: 'main', url: 'https://github.com/DaGeRe/peass-ci.git'
+//                     git branch: 'develop', url: 'https://github.com/DaGeRe/peass-ci.git'
+//                     // last working version
+//                     // sh 'git checkout ef18d7be2d0a344b087b9ab5565d408772c91041'
+//                 }
             }
         }
         stage('build peass'){
@@ -32,7 +32,8 @@ pipeline {
                 dir('peass') {
                     // (optional) for cleaning maven repo dependencies
                     //sh 'mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false'
-                    sh 'unset MAVEN_CONFIG && ./mvnw clean install -DskipTests'
+                    sh 'unset MAVEN_CONFIG && ./mvnw clean install -DskipTests -P buildStarter'
+                    sh 'unset MAVEN_CONFIG && ./mvnw clean package -DskipTests'
                 }
             }
         }
