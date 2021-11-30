@@ -39,6 +39,7 @@ pipeline {
         stage('filter passing tests'){
             steps{
                 script{
+                    sh 'git config user.email "you@example.com" && git config user.name "jenkins"'
                     sh 'cp -f ${JENKINS_HOME}/peass_scripts/build.gradle ${WORKSPACE}/app'
                     sh 'python3 ${JENKINS_HOME}/peass_scripts/find_unit_tests.py ${WORKSPACE}/app/src'
                     sh 'git stash'
