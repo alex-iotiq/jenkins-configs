@@ -19,12 +19,12 @@ pipeline {
                     // last working version
                     // sh 'git checkout d1aed977f0fbcbe181500a728a0c0133e686ecfc'
                 }
-//                 dir('peass-ci') {
-//                     //  branch: 'main', url: 'https://github.com/DaGeRe/peass-ci.git'
-//                     git branch: 'develop', url: 'https://github.com/DaGeRe/peass-ci.git'
-//                     // last working version
-//                     // sh 'git checkout ef18d7be2d0a344b087b9ab5565d408772c91041'
-//                 }
+                dir('peass-ci') {
+                    //  branch: 'main', url: 'https://github.com/DaGeRe/peass-ci.git'
+                    git branch: 'develop', url: 'https://github.com/jenkinsci/peass-ci-plugin'
+                    // last working version
+                    // sh 'git checkout ef18d7be2d0a344b087b9ab5565d408772c91041'
+                }
             }
         }
         stage('build peass'){
