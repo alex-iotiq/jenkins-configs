@@ -56,7 +56,7 @@ pipeline {
             // this is the fastest configuration possible, for more accurate measurements you need more VMs / iterations / repetitions / warmup
             // with includes it's possible to cherry pick the tests to make it faster
             steps {
-              measure VMs: 2, createDefaultConstructor: false,  generateCoverageSelection: true, iterations: 1, measurementMode: 'COMPLETE', nightlyBuild: false, redirectSubprocessOutputToFile: false, redirectToNull: false, repetitions: 1, showStart: true, testGoal: 'testBorDebugUnitTest', timeout: 300, updateSnapshotDependencies: true
+              measure VMs: 2, createDefaultConstructor: false,  generateCoverageSelection: true, includes: 'com.boryazilim.android.bormdm.app.test.LogTest#testVerbose', iterations: 1, measurementMode: 'COMPLETE', nightlyBuild: false, redirectSubprocessOutputToFile: false, redirectToNull: false, repetitions: 1, showStart: true, testGoal: 'testBorDebugUnitTest', timeout: 300, updateSnapshotDependencies: true
             }
         }
     }
