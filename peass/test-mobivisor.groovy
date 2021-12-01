@@ -6,13 +6,13 @@ pipeline {
     }
     stages {
         // for clean clone
-        stage('remove current project'){
-            steps{
-                sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/*'
-                sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/.git*'
-                sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/.gradle*'
-            }
-        }
+//         stage('remove current project'){
+//             steps{
+//                 sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/*'
+//                 sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/.git*'
+//                 sh 'rm -rf ${JENKINS_HOME}/workspace/${JOB_NAME}/.gradle*'
+//             }
+//         }
         // {MOBIVISOR_GITLAB} = path to AndroidMdmAgent project
         stage('clone'){
             steps{
