@@ -1,10 +1,10 @@
 pipeline {
     agent any
-    triggers {
-        // daily at 20:00
-        //pollSCM('0 20 * * *')
-        cron('0 20 * * *')
-    }
+//     triggers {
+//         // daily at 20:00
+//         //pollSCM('0 20 * * *')
+//         cron('0 20 * * *')
+//     }
     stages {
         // for clean clone
 //         stage('remove current project'){
