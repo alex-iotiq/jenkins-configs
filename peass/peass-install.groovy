@@ -1,16 +1,6 @@
 pipeline {
     agent any
     stages {
-        // (optional) for clean reinstall of peass if some dependencies broke for some reason
-        // will delete all maven repos in local .m2 directory
-        /*
-        stage('remove local maven .m2 repositories'){
-            steps{
-                // use the path to your m2 repo (usually in /home/user/.m2)
-                sh 'rm {PATH_TO_M2_REPO}/repo* -rf'
-            }
-        }
-        */
         stage('clone peass and peass-ci') {
             steps{
                 dir('peass') {
@@ -33,7 +23,7 @@ pipeline {
                     // (optional) for cleaning maven repo dependencies
                     //sh 'mvn dependency:purge-local-repository -DactTransitively=false -DreResolve=false'
                     sh 'unset MAVEN_CONFIG && ./mvnw clean install -DskipTests -P buildStarter'
-                    sh 'unset MAVEN_CONFIG && ./mvnw clean package -DskipTests'
+                    //sh 'unset MAVEN_CONFIG && ./mvnw clean package -DskipTests'
                 }
             }
         }
@@ -46,6 +36,13 @@ pipeline {
                     // copying peass-ci plugin to jenkins
                     // jenkins needs a restart after finish
                     sh 'cp target/peass-ci.hpi $JENKINS_HOME/plugins/'
+                }
+            }
+        }
+        stage('restart') {
+            steps{
+                script {
+                    jenkins.model.Jenkins.instance.safeRestart()
                 }
             }
         }
